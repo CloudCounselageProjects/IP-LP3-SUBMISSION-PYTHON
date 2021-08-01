@@ -1,0 +1,16 @@
+import csv
+import pandas as pd
+
+#convert csv file to tsv file
+with open(r'EQ010114.csv','r') as csvin:
+    with open('New_tsv.txt', 'w') as tsvout:
+        csvin = csv.reader(csvin)
+        tsvout = csv.writer(tsvout, delimiter='\t')
+
+        for row in csvin:
+            tsvout.writerow(row)
+
+#convert tsv file to csv file
+tsv_file = r'New_tsv.txt'
+csv_table = pd.read_table(tsv_file, sep='\t')
+csv_table.to_csv('New_csv.csv', index=False)
