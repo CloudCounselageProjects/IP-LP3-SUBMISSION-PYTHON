@@ -1,0 +1,17 @@
+import pandas as pd
+
+answer = input("Enter 'tsv' to convert csv into tsv and csv to convert into csv :  ")
+if answer == "tsv":
+    file1 = input("CSV FILE : ")
+    text_file = input("Path to save file : ")
+    result1 = pd.read_csv(file1, sep=',')
+    tsv = result1.to_csv(text_file, sep='\t')
+
+elif answer == "csv":
+    file2 = input("TSV file :")
+    text_file = input("Path to save file:")
+    result2 = pd.read_csv(file2, sep='\t')
+    csv = result2.to_csv(text_file, sep=',')
+
+else:
+    print("INVALID")
